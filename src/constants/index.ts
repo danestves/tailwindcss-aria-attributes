@@ -17,7 +17,7 @@ export const ARIA_ATTRIBUTES = [
   'readonly',
   'required',
   'selected',
-]
+];
 
 export const ENUMERABLES = {
   autocomplete: ['both', 'inline', 'list', 'none'],
@@ -27,4 +27,4 @@ export const ENUMERABLES = {
   orientation: ['horizontal', 'undefined', 'vertial'],
   relevant: ['additions', 'all', 'removals', 'text'],
   sort: ['ascending', 'descending', 'none', 'other'],
-}
+};

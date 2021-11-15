@@ -1,34 +1,65 @@
 {
-  "name": "tailwindcss-aria-attributes",
-  "author": "Daniel Esteves <danestves@gmail.com>",
   "version": "1.0.0",
-  "main": "index.js",
-  "description": "TailwindCSS aria-* attribute utilities plugin",
-  "scripts": {
-    "build": "tsc --build",
-    "prepublish": "pnpm build"
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
   },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "tailwindcss-aria-attributes",
+  "description": "aria-* attribute utility plugin for TailwindCSS",
+  "author": "Daniel Esteves <danestves@gmail.com>",
+  "module": "dist/tailwindcss-aria-attributes.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/tailwindcss-aria-attributes.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/tailwindcss-aria-attributes.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
-    "@types/tailwindcss": "^2.2.4",
+    "@navith/tailwindcss-plugin-author-types": "^1.8.1-0.1",
+    "@size-limit/preset-small-lib": "^6.0.4",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
+    "@zazen/eslint-config": "^2.3.0",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-xo": "^0.39.0",
+    "eslint-config-standard-with-typescript": "^21.0.1",
+    "husky": "^7.0.4",
     "prettier": "^2.4.1",
+    "size-limit": "^6.0.4",
     "tailwindcss": "^2.2.19",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
     "typescript": "^4.4.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/danestves/tailwindcss-aria-attributes.git"
-  },
-  "keywords": [
-    "tailwindcss"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/danestves/tailwindcss-aria-attributes/issues"
-  },
-  "homepage": "https://github.com/danestves/tailwindcss-aria-attributes#readme"
+  }
 }
