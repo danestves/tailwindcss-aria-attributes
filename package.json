@@ -1,5 +1,5 @@
 {
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "aria-* attribute utility plugin for TailwindCSS",
   "keywords": [
     "tailwindcss",
@@ -24,11 +24,11 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "start": "dts watch",
+    "build": "dts build",
+    "test": "dts test",
+    "lint": "dts lint src",
+    "prepare": "dts build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "changeset": "changeset add",
@@ -36,11 +36,6 @@
   },
   "peerDependencies": {
     "tailwindcss": ">=2.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
   },
   "prettier": {
     "printWidth": 80,
@@ -67,17 +62,15 @@
     "@navith/tailwindcss-plugin-author-types": "^1.8.1-0.1",
     "@rollup/plugin-replace": "^3.0.0",
     "@size-limit/preset-small-lib": "^6.0.4",
-    "@typescript-eslint/eslint-plugin": "5.3.x",
-    "@typescript-eslint/parser": "5.3.x",
-    "@zazen/eslint-config": "2.3.x",
-    "eslint": "^8.2.0",
-    "eslint-config-prettier": "^8.3.0",
+    "@zazen/eslint-config": "^2.3.0",
+    "dts-cli": "^0.19.5",
+    "eslint": "7.32.0",
+    "eslint-config-react-app": "^6.0.0",
     "eslint-config-standard-with-typescript": "21.0.1",
     "husky": "^7.0.4",
     "prettier": "^2.4.1",
     "size-limit": "^6.0.4",
     "tailwindcss": "^2.2.19",
-    "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
     "typescript": "^4.4.4"
   }
