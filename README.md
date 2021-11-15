@@ -19,6 +19,7 @@ Variants for several [`aria-*` attributes](https://www.w3.org/TR/wai-aria/#state
 </p>
 
 > TailwindCSS aria-\* attribute utilities plugin
+>
 > This is a fork from [@thoughtbot/tailwindcss-aria-attributes](https://github.com/thoughtbot/tailwindcss-aria-attributes) that is not currently on NPM
 
 ## Install
@@ -44,7 +45,7 @@ module.exports = {
     require('tailwindcss-aria-attributes'),
     // ...
   ],
-}
+};
 ```
 
 ## Usage
