@@ -3,6 +3,11 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "homepage": "https://github.com/danestves/tailwindcss-aria-attributes",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:danestves/tailwindcss-aria-attributes.git"
+  },
   "files": [
     "dist",
     "src"
