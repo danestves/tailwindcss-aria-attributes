@@ -22,11 +22,12 @@ jobs:
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
 
-      - name: Lint
-        run: yarn lint
+      # TODO: make react-app work from TSDX
+      # - name: Lint
+      #   run: yarn lint
 
       - name: Test
-        run: yarn test --ci --coverage --maxWorkers=2
+        run: yarn test --ci --coverage --maxWorkers=2 --passWithNoTests
 
       - name: Build
         run: yarn build

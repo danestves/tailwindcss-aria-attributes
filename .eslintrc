@@ -1,5 +1,5 @@
 {
-  "extends": ["@zazen/eslint-config/typescript", "prettier"],
+  "extends": ["@zazen/eslint-config/typescript"],
   "env": {
     "node": true
   },
@@ -8,5 +8,16 @@
     "@typescript-eslint/space-before-function-paren": "off",
 
     "@typescript-eslint/explicit-function-return-type": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/**/*.{js,ts,tsx}",
+        "**/*.@(spec|test).{js,ts,tsx}"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
 }

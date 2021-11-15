@@ -1,4 +1,0 @@
-*.d.ts
-dist
-src/types/**/*.ts
-node_modules

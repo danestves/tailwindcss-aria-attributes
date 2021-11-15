@@ -1,5 +1,13 @@
 {
   "version": "1.0.1",
+  "description": "aria-* attribute utility plugin for TailwindCSS",
+  "keywords": [
+    "tailwindcss",
+    "tailwindcss-plugin",
+    "aria",
+    "aria-attributes",
+    "aria-current"
+  ],
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -22,10 +30,12 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "changeset": "changeset add",
+    "release": "yarn build && changeset publish"
   },
   "peerDependencies": {
-    "tailwindcss": ">= 1.5"
+    "tailwindcss": ">=2.2"
   },
   "husky": {
     "hooks": {
@@ -39,7 +49,6 @@
     "trailingComma": "es5"
   },
   "name": "tailwindcss-aria-attributes",
-  "description": "aria-* attribute utility plugin for TailwindCSS",
   "author": "Daniel Esteves <danestves@gmail.com>",
   "module": "dist/tailwindcss-aria-attributes.esm.js",
   "size-limit": [
@@ -53,14 +62,17 @@
     }
   ],
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.1",
+    "@changesets/cli": "^2.18.0",
     "@navith/tailwindcss-plugin-author-types": "^1.8.1-0.1",
+    "@rollup/plugin-replace": "^3.0.0",
     "@size-limit/preset-small-lib": "^6.0.4",
-    "@typescript-eslint/eslint-plugin": "^5.3.1",
-    "@typescript-eslint/parser": "^5.3.1",
-    "@zazen/eslint-config": "^2.3.0",
+    "@typescript-eslint/eslint-plugin": "5.3.x",
+    "@typescript-eslint/parser": "5.3.x",
+    "@zazen/eslint-config": "2.3.x",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-standard-with-typescript": "^21.0.1",
+    "eslint-config-standard-with-typescript": "21.0.1",
     "husky": "^7.0.4",
     "prettier": "^2.4.1",
     "size-limit": "^6.0.4",
