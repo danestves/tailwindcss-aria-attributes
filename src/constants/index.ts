@@ -1,0 +1,30 @@
+export const ARIA_ATTRIBUTES = [
+  'atomic',
+  'busy',
+  'checked',
+  'current',
+  'disabled',
+  'expanded',
+  'grabbed',
+  'haspopup',
+  'hidden',
+  'invalid',
+  'live',
+  'modal',
+  'multiline',
+  'multiselectable',
+  'pressed',
+  'readonly',
+  'required',
+  'selected',
+]
+
+export const ENUMERABLES = {
+  autocomplete: ['both', 'inline', 'list', 'none'],
+  current: ['date', 'location', 'page', 'step', 'time'],
+  dropeffect: ['copy', 'execute', 'link', 'move', 'none', 'popup'],
+  haspopup: ['dialog', 'grid', 'listbox', 'menu', 'tree'],
+  orientation: ['horizontal', 'undefined', 'vertial'],
+  relevant: ['additions', 'all', 'removals', 'text'],
+  sort: ['ascending', 'descending', 'none', 'other'],
+}
