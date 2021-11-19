@@ -6,7 +6,7 @@ import { ARIA_ATTRIBUTES, ENUMERABLES } from './constants';
 
 export default plugin(({ addVariant, e }) => {
   ARIA_ATTRIBUTES.forEach((boolean) => {
-    let selector = `aria-${boolean}`;
+    const selector = `aria-${boolean}`;
     addVariant(selector, ({ modifySelectors, separator }) =>
       modifySelectors(
         ({ className }) =>
@@ -14,7 +14,7 @@ export default plugin(({ addVariant, e }) => {
       )
     );
 
-    let groupSelector = `group-aria-${boolean}`;
+    const groupSelector = `group-aria-${boolean}`;
     addVariant(groupSelector, ({ modifySelectors, separator }) =>
       modifySelectors(
         ({ className }) =>
@@ -24,7 +24,7 @@ export default plugin(({ addVariant, e }) => {
       )
     );
 
-    let peerSelector = `peer-aria-${boolean}`;
+    const peerSelector = `peer-aria-${boolean}`;
     addVariant(peerSelector, ({ modifySelectors, separator }) =>
       modifySelectors(
         ({ className }) =>
@@ -35,9 +35,9 @@ export default plugin(({ addVariant, e }) => {
     );
   });
 
-  for (let [attribute, values] of Object.entries(ENUMERABLES)) {
-    for (let value of values) {
-      let selector = `aria-${attribute}-${value}`;
+  for (const [attribute, values] of Object.entries(ENUMERABLES)) {
+    for (const value of values) {
+      const selector = `aria-${attribute}-${value}`;
       addVariant(selector, ({ modifySelectors, separator }) =>
         modifySelectors(
           ({ className }) =>
@@ -47,7 +47,7 @@ export default plugin(({ addVariant, e }) => {
         )
       );
 
-      let groupSelector = `group-aria-${attribute}-${value}`;
+      const groupSelector = `group-aria-${attribute}-${value}`;
       addVariant(groupSelector, ({ modifySelectors, separator }) =>
         modifySelectors(
           ({ className }) =>
@@ -57,7 +57,7 @@ export default plugin(({ addVariant, e }) => {
         )
       );
 
-      let peerSelector = `peer-aria-${attribute}-${value}`;
+      const peerSelector = `peer-aria-${attribute}-${value}`;
       addVariant(peerSelector, ({ modifySelectors, separator }) =>
         modifySelectors(
           ({ className }) =>
