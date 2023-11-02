@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
+      - run: npm install
+
       - name: Lint
         run: npm run lint
 
