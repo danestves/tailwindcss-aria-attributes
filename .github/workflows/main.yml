@@ -20,10 +20,10 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Lint
-        run: npmr run lint
+        run: npm run lint
 
       - name: Test
-        run: npmr run test -- --ci --coverage --maxWorkers=2 --passWithNoTests
+        run: npm run test -- --ci --coverage --maxWorkers=2 --passWithNoTests
 
       - name: Build
-        run: npmr run build
+        run: npm run build
