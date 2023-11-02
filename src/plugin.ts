@@ -1,7 +1,5 @@
-// Dependencies
 import plugin from 'tailwindcss/plugin';
 
-// Internals
 import { ARIA_ATTRIBUTES, ENUMERABLES } from './constants';
 
 export default plugin(({ addVariant, e }) => {
