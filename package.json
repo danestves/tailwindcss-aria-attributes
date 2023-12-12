@@ -17,21 +17,20 @@
   "license": "MIT",
   "author": "Daniel Esteves <danestves@gmail.com>",
   "main": "dist/index.js",
-  "module": "dist/tailwindcss-aria-attributes.esm.js",
+  "module": "dist/index.mjs",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
-    "build": "dts build",
+    "build": "tsup",
     "changeset": "changeset add",
-    "lint": "dts lint src",
-    "prepare": "dts build",
+    "lint": "eslint .",
+    "prepare": "tsup",
     "release": "npm run build && changeset publish",
     "size": "size-limit",
-    "start": "dts watch",
-    "test": "dts test --passWithNoTests"
+    "start": "tsup --watch"
   },
   "prettier": {
     "printWidth": 80,
@@ -40,22 +39,22 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "0.4.8",
-    "@changesets/cli": "2.26.2",
-    "@navith/tailwindcss-plugin-author-types": "1.8.1-0.1",
+    "@changesets/changelog-github": "0.5.0",
+    "@changesets/cli": "2.27.1",
     "@rollup/plugin-replace": "5.0.5",
-    "@size-limit/preset-small-lib": "10.0.2",
-    "@typescript-eslint/eslint-plugin": "6.9.1",
-    "@typescript-eslint/parser": "6.9.1",
-    "dts-cli": "2.0.3",
-    "eslint": "8.52.0",
-    "eslint-config-prettier": "9.0.0",
+    "@size-limit/preset-small-lib": "11.0.1",
+    "@typescript-eslint/eslint-plugin": "6.14.0",
+    "@typescript-eslint/parser": "6.14.0",
+    "eslint": "8.55.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.0.1",
     "husky": "8.0.3",
-    "prettier": "3.0.3",
-    "size-limit": "10.0.2",
-    "tailwindcss": "3.3.5",
+    "prettier": "3.1.1",
+    "size-limit": "11.0.1",
+    "tailwindcss": "3.3.6",
     "tslib": "2.6.2",
-    "typescript": "5.2.2"
+    "tsup": "8.0.1",
+    "typescript": "5.3.3"
   },
   "peerDependencies": {
     "tailwindcss": ">=2.2"
@@ -65,12 +64,12 @@
   },
   "size-limit": [
     {
-      "path": "dist/tailwindcss-aria-attributes.cjs.production.min.js",
-      "limit": "10 KB"
+      "path": "dist/index.js",
+      "limit": "2 KB"
     },
     {
-      "path": "dist/tailwindcss-aria-attributes.esm.js",
-      "limit": "10 KB"
+      "path": "dist/index.mjs",
+      "limit": "2 KB"
     }
   ]
 }
