@@ -1,69 +1,94 @@
 import plugin from 'tailwindcss/plugin';
 
-import { ARIA_ATTRIBUTES, ENUMERABLES } from './constants';
+const attributes = {
+  boolean: [
+    'atomic',
+    'busy',
+    'checked',
+    'current',
+    'disabled',
+    'expanded',
+    'grabbed',
+    'haspopup',
+    'hidden',
+    'invalid',
+    'live',
+    'modal',
+    'multiline',
+    'multiselectable',
+    'pressed',
+    'readonly',
+    'required',
+    'selected',
+  ],
+  enum: {
+    autocomplete: ['both', 'inline', 'list', 'none'],
+    current: ['date', 'location', 'page', 'step', 'time'],
+    dropeffect: ['copy', 'execute', 'link', 'move', 'none', 'popup'],
+    haspopup: ['dialog', 'grid', 'listbox', 'menu', 'tree'],
+    orientation: ['horizontal', 'undefined', 'vertial'],
+    relevant: ['additions', 'all', 'removals', 'text'],
+    sort: ['ascending', 'descending', 'none', 'other'],
+  },
+};
 
-export default plugin(({ addVariant, e }) => {
-  ARIA_ATTRIBUTES.forEach((boolean) => {
-    const selector = `aria-${boolean}`;
-    addVariant(selector, ({ modifySelectors, separator }) =>
-      modifySelectors(
-        ({ className }) =>
-          `[${selector}="true"].${e(`${selector}${separator}${className}`)}`
-      )
+export default plugin(({ addVariant, matchVariant }) => {
+  const addAriaVariant = (name: string, value: string) => {
+    addVariant(name, `[${name}="${value}"]&`);
+    matchVariant(
+      'group',
+      (_, { modifier }) =>
+        modifier
+          ? `:merge(.group\\/${modifier})[${name}="${value}"] &`
+          : `:merge(.group)[${name}="${value}"] &`,
+      {
+        values: { [name]: name },
+      }
     );
-
-    const groupSelector = `group-aria-${boolean}`;
-    addVariant(groupSelector, ({ modifySelectors, separator }) =>
-      modifySelectors(
-        ({ className }) =>
-          `.group[aria-${boolean}="true"] .${e(
-            `${groupSelector}${separator}${className}`
-          )}`
-      )
+    matchVariant(
+      'peer',
+      (_, { modifier }) =>
+        modifier
+          ? `:merge(.peer\\/${modifier})[${name}="${value}"] ~ &`
+          : `:merge(.peer)[${name}="${value}"] ~ &`,
+      {
+        values: { [name]: name },
+      }
     );
-
-    const peerSelector = `peer-aria-${boolean}`;
-    addVariant(peerSelector, ({ modifySelectors, separator }) =>
-      modifySelectors(
-        ({ className }) =>
-          `.peer[aria-${boolean}="true"] ~ .${e(
-            `${peerSelector}${separator}${className}`
-          )}`
-      )
+  };
+  const addAriaEnumVariant = (name: string, value: string) => {
+    const variantName = `${name}-${value}`;
+    addVariant(variantName, `[${name}="${value}"]&`);
+    matchVariant(
+      'group',
+      (_, { modifier }) =>
+        modifier
+          ? `:merge(.group\\/${modifier})[${name}="${value}"] &`
+          : `:merge(.group)[${name}="${value}"] &`,
+      {
+        values: { [variantName]: variantName },
+      }
     );
-  });
+    matchVariant(
+      'peer',
+      (_, { modifier }) =>
+        modifier
+          ? `:merge(.peer\\/${modifier})[${name}="${value}"] ~ &`
+          : `:merge(.peer)[${name}="${value}"] ~ &`,
+      {
+        values: { [variantName]: variantName },
+      }
+    );
+  };
 
-  for (const [attribute, values] of Object.entries(ENUMERABLES)) {
+  // Enum attributes go first because currently they are all non-interactive states.
+  for (const [attribute, values] of Object.entries(attributes.enum)) {
     for (const value of values) {
-      const selector = `aria-${attribute}-${value}`;
-      addVariant(selector, ({ modifySelectors, separator }) =>
-        modifySelectors(
-          ({ className }) =>
-            `[aria-${attribute}="${value}"].${e(
-              `${selector}${separator}${className}`
-            )}`
-        )
-      );
-
-      const groupSelector = `group-aria-${attribute}-${value}`;
-      addVariant(groupSelector, ({ modifySelectors, separator }) =>
-        modifySelectors(
-          ({ className }) =>
-            `.group[aria-${attribute}="${value}"] .${e(
-              `${groupSelector}${separator}${className}`
-            )}`
-        )
-      );
-
-      const peerSelector = `peer-aria-${attribute}-${value}`;
-      addVariant(peerSelector, ({ modifySelectors, separator }) =>
-        modifySelectors(
-          ({ className }) =>
-            `.peer[aria-${attribute}="${value}"] ~ .${e(
-              `${peerSelector}${separator}${className}`
-            )}`
-        )
-      );
+      addAriaEnumVariant(`aria-${attribute}`, value);
     }
+  }
+
+  for (const attribute of attributes.boolean) {
+    addAriaVariant(`aria-${attribute}`, 'true');
   }
 });
