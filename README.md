@@ -3,7 +3,9 @@
 Variants for several [`aria-*` attributes](https://www.w3.org/TR/wai-aria/#state-prop-def) and their supported values for TailwindCSS.
 
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://www.npmjs.com/package/tailwindcss-aria-attributes" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/tailwindcss-aria-attributes" />
+  </a>
   <a href="https://github.com/danestves/tailwindcss-aria-attributes#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
