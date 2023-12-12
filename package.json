@@ -17,21 +17,20 @@
   "license": "MIT",
   "author": "Daniel Esteves <danestves@gmail.com>",
   "main": "dist/index.js",
-  "module": "dist/tailwindcss-aria-attributes.esm.js",
+  "module": "dist/index.mjs",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
-    "build": "dts build",
+    "build": "tsup",
     "changeset": "changeset add",
-    "lint": "dts lint src",
-    "prepare": "dts build",
+    "lint": "eslint .",
+    "prepare": "tsup",
     "release": "npm run build && changeset publish",
     "size": "size-limit",
-    "start": "dts watch",
-    "test": "dts test --passWithNoTests"
+    "start": "tsup --watch"
   },
   "prettier": {
     "printWidth": 80,
@@ -46,14 +45,15 @@
     "@size-limit/preset-small-lib": "11.0.1",
     "@typescript-eslint/eslint-plugin": "6.14.0",
     "@typescript-eslint/parser": "6.14.0",
-    "dts-cli": "2.0.3",
     "eslint": "8.55.0",
     "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.0.1",
     "husky": "8.0.3",
     "prettier": "3.1.1",
     "size-limit": "11.0.1",
     "tailwindcss": "3.3.6",
     "tslib": "2.6.2",
+    "tsup": "8.0.1",
     "typescript": "5.3.3"
   },
   "peerDependencies": {
@@ -64,12 +64,12 @@
   },
   "size-limit": [
     {
-      "path": "dist/tailwindcss-aria-attributes.cjs.production.min.js",
-      "limit": "10 KB"
+      "path": "dist/index.js",
+      "limit": "2 KB"
     },
     {
-      "path": "dist/tailwindcss-aria-attributes.esm.js",
-      "limit": "10 KB"
+      "path": "dist/index.mjs",
+      "limit": "2 KB"
     }
   ]
 }
