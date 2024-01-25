@@ -26,7 +26,7 @@ const attributes = {
     current: ['date', 'location', 'page', 'step', 'time'],
     dropeffect: ['copy', 'execute', 'link', 'move', 'none', 'popup'],
     haspopup: ['dialog', 'grid', 'listbox', 'menu', 'tree'],
-    orientation: ['horizontal', 'undefined', 'vertial'],
+    orientation: ['horizontal', 'undefined', 'vertical'],
     relevant: ['additions', 'all', 'removals', 'text'],
     sort: ['ascending', 'descending', 'none', 'other'],
   },
